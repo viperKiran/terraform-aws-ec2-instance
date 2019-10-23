@@ -122,6 +122,9 @@ resource "aws_instance" "default" {
   }
 
   tags = module.label.tags
+  lifecycle {
+    ignore_changes = [ami]
+  }
 }
 
 resource "aws_eip" "default" {
